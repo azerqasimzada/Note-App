@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/core/background_mode.dart';
+import 'package:note_app/data_base.dart';
 
 class CreateNotes extends StatefulWidget {
   const CreateNotes({super.key});
@@ -14,6 +16,7 @@ class _CreateNotesState extends State<CreateNotes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: backgroundMode(),
         title: const Text('New Note'),
       ),
 
@@ -49,7 +52,12 @@ class _CreateNotesState extends State<CreateNotes> {
       ),
     ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        backgroundColor: backgroundMode(),
+        onPressed: () {
+          int id = DataBase.dataBase.length + 1;
+          DataBase().saveNote(id:id , notetitle:titleController.text, note:bodyController.text);
+          Navigator.pop(context);
+        },
         child: const Icon(Icons.save),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
