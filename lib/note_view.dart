@@ -29,16 +29,19 @@ class _NoteViewState extends State<NoteView> {
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back)),
         title: Text(notetitle)),
-      body: Column(
-        children: [
-          Expanded(
-            child: TextFormField(
-              maxLines: 1000,
-              controller: noteController,
-              
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: TextFormField(
+                maxLines: 1000,
+                controller: noteController,
+                
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -18,11 +18,11 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: backgroundMode(),
         title: const Text(
-          'NotePads',
+          'NotePad',
           style: TextStyle(decoration: TextDecoration.underline),
         ),
         actions: [
-          //dart mode button
+          //dark mode button
           IconButton(
             onPressed: () {
               isDarkMode = !isDarkMode;

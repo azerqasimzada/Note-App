@@ -29,19 +29,19 @@ class _CreateNotesState extends State<CreateNotes> {
             decoration: const InputDecoration(
               border:InputBorder.none,
               hintText: 'Title',
-              hintStyle:const TextStyle(
+              hintStyle:TextStyle(
                 fontSize:28,
                 fontStyle: FontStyle.italic,
               ) 
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(height: 5,),
           TextFormField(
             controller: bodyController,
             decoration: const InputDecoration(
               border:InputBorder.none,
-              hintText: 'Your Note',
-              hintStyle:const TextStyle(
+              hintText: 'Your note here...',
+              hintStyle:TextStyle(
                 fontSize:20,
                 fontStyle: FontStyle.italic,
             
