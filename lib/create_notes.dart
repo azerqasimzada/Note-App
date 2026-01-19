@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/core/background_mode.dart';
+import 'package:note_app/core/appbar_color.dart';
 import 'package:note_app/data_base.dart';
 
 class CreateNotes extends StatefulWidget {
@@ -16,11 +16,14 @@ class _CreateNotesState extends State<CreateNotes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundMode(),
+        backgroundColor: AppbarColor.appbarColor,
         title: const Text('New Note'),
-      ),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 22),
+        leading: const Icon( Icons.chevron_left , color: Colors.white,size: 30,),
 
-    body: Padding(
+        ),
+      body: Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
@@ -52,13 +55,14 @@ class _CreateNotesState extends State<CreateNotes> {
       ),
     ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: backgroundMode(),
         onPressed: () {
           int id = DataBase.dataBase.length + 1;
           DataBase().saveNote(id:id , notetitle:titleController.text, note:bodyController.text);
           Navigator.pop(context);
         },
         child: const Icon(Icons.save),
+        backgroundColor: AppbarColor.appbarColor,
+        foregroundColor: Colors.white,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );

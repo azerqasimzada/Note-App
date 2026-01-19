@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/core/appbar_color.dart';
 import 'package:note_app/data_base.dart';
 
 class NoteView extends StatefulWidget {
@@ -24,11 +25,17 @@ class _NoteViewState extends State<NoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppbarColor.appbarColor,
         leading: IconButton(onPressed: (){
+          DataBase.dataBase[widget.telebolunannoteid]['notetitle'] = noteController.text;
           DataBase.dataBase[widget.telebolunannoteid]['note'] = noteController.text;
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back)),
-        title: Text(notetitle)),
+        title: Text(notetitle),
+        titleTextStyle: const TextStyle(color: Colors.black, fontSize: 22),
+        
+        
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(brightness: Brightness.dark),
       title: 'Material App',
+      theme: ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(
+          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 22),
+          iconTheme: const IconThemeData(color: Colors.white), 
+          actionsIconTheme: IconThemeData(color: Colors.white),
+        ),
+      ),
       home: HomeScreen(),
     );
        
