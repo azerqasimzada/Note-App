@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:note_app/controller/create_note_controller.dart';
 import 'package:note_app/core/appbar_color.dart';
-import 'package:note_app/data_base.dart';
 
 class CreateNotes extends StatefulWidget {
   const CreateNotes({super.key});
@@ -10,6 +11,7 @@ class CreateNotes extends StatefulWidget {
 }
 
 class _CreateNotesState extends State<CreateNotes> {
+  CreateNoteController createNoteController = Get.put(CreateNoteController());
   final titleController=TextEditingController();
   final bodyController=TextEditingController();
   @override
@@ -19,9 +21,6 @@ class _CreateNotesState extends State<CreateNotes> {
         backgroundColor: AppbarColor.appbarColor,
         title: const Text('New Note'),
         centerTitle: true,
-        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 22),
-        leading: const Icon( Icons.chevron_left , color: Colors.white,size: 30,),
-
         ),
       body: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -55,14 +54,20 @@ class _CreateNotesState extends State<CreateNotes> {
       ),
     ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          int id = DataBase.dataBase.length + 1;
-          DataBase().saveNote(id:id , notetitle:titleController.text, note:bodyController.text);
-          Navigator.pop(context);
+        onPressed: () {createNoteController.addNote(noteTitle: titleController.text, note: bodyController.text);
+        Navigator.pop(context);
         },
-        child: const Icon(Icons.save),
         backgroundColor: AppbarColor.appbarColor,
-        foregroundColor: Colors.white,
+        child: const Icon(Icons.save),
+       
+
+
+
+
+
+
+
+
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
