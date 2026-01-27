@@ -65,14 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   String noteContent = controller.notesList[noteId]["note"];
 
                   return Slidable(
-                   
                     key: const ValueKey(1),
-                  
-                   
                     startActionPane:  ActionPane(
                       motion: ScrollMotion(),
                       children: [
-                       
                         SlidableAction(
                           onPressed:(BuildContext context){
                             controller.deleteNote(noteId);
@@ -81,8 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           foregroundColor: Colors.white,
                           icon: Icons.delete,
                           label: 'Delete',
-                        ),
-                        
+                        ), 
                       ],
                     ),
                   
